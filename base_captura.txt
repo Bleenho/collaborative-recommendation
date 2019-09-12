@@ -1,0 +1,62 @@
+{
+  "Ana": {
+    "Artigo 1": 2.5,
+    "Artigo 2": 3.0,
+    "Artigo 3": 2.5,
+    "Artigo 4": 3.0,
+    "Artigo 5": 3.0
+  },
+  "Pedro": {
+    "Artigo 1": 3.5,
+    "Artigo 2": 3.5,
+    "Artigo 3": 3.0,
+    "Artigo 6": 3.5,
+    "Artigo 4": 4.0,
+    "Artigo 5": 4.0,
+    "Artigo 7": 4.5
+  },
+  "Claudia": {
+    "Artigo 1": 3.0,
+    "Artigo 2": 1.5,
+    "Artigo 6": 3.0,
+    "Artigo 4": 2.0
+  },
+  "Adriano": {
+    "Artigo 1": 3.5,
+    "Artigo 2": 5.0,
+    "Artigo 3": 3.5,
+    "Artigo 6": 4.0,
+    "Artigo 4": 3.0,
+    "Artigo 5": 5.0,
+    "Artigo 7": 4.0
+  },
+  "Leonardo": {
+    "Artigo 1": 2.5,
+    "Artigo 2": 3.0,
+    "Artigo 6": 2.5,
+    "Artigo 4": 2.0,
+    "Artigo 5": 3.5,
+    "Artigo 7": 1.0
+  },
+  "Janaina": {
+    "Artigo 1": 3.0,
+    "Artigo 2": 3.5,
+    "Artigo 3": 4.0,
+    "Artigo 6": 4.5,
+    "Artigo 4": 3.0,
+    "Artigo 5": 3.0
+  },
+  "Pablo": {
+    "Artigo 2": 0.7,
+    "Artigo 3": 0.5
+  },
+  "Pablo3": {
+    "Artigo 2": 0.6,
+    "Artigo 3": 0.2
+  },
+  "idUsuario": {
+    "Artigo 2": 0.7,
+    "Artigo 3": 0.1,
+    "Artigo 1": 0.7
+  }
+}
