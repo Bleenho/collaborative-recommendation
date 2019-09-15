@@ -1,6 +1,5 @@
 #!flask/bin/python
 from flask import Flask
-from flask_restplus import Resource, Api
 from flask import request
 from service import Recomendacao
 from flask_swagger_ui import get_swaggerui_blueprint
