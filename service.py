@@ -2,17 +2,20 @@ from math import sqrt
 import threading
 import simplejson as json
 import os
+import platform
 
 class Recomendacao:
 	
 	def getRecomendacoes(self, usuario):
-		with open(os.getcwd() + '\\base_recomendacao.json', 'r', encoding="utf-8") as json_file:
+		with open(os.getcwd() + self.fatchSystemBar() + 'base_recomendacao.json', 'r', encoding="utf-8") as json_file:
 			data = json.load(json_file)
 			user = data.get(usuario)
 		return json.dumps(user, indent=4, use_decimal=True)
 
-
-			
+	def fatchSystemBar(self):
+		if platform.system() == 'Linux':
+			return '/model/'
+		return '\\model\\'	
 	
 	def roboDeRecomendacoes(self, usuario):
 		totais={}
@@ -41,10 +44,10 @@ class Recomendacao:
 		#return datas
 	
 	def writeRecomendation(self, dados, usuario):
-		with open(os.getcwd() + '\\base_recomendacao.json', 'r', encoding="utf-8") as json_file:
+		with open(os.getcwd() + self.fatchSystemBar() + 'base_recomendacao.json', 'r', encoding="utf-8") as json_file:
 			data = json.load(json_file)
 			user = data.get(usuario)
-		with open(os.getcwd() + '\\base_recomendacao.json', 'w') as json_file:
+		with open(os.getcwd() + self.fatchSystemBar() + 'base_recomendacao.json', 'w') as json_file:
 			data.update({usuario : dados})
 			json.dump(data, json_file, indent=2)
 			
@@ -75,7 +78,7 @@ class Recomendacao:
 		return json.dumps(similaridade, indent=4, use_decimal=True)
 		
 	def obtemBase(self):
-		with open(os.getcwd() + '\\base_captura.json', 'r') as json_file:
+		with open(os.getcwd() + self.fatchSystemBar() + 'base_captura.json', 'r') as json_file:
 			data = json.load(json_file)
 		dataJson = json.dumps(data, indent=4, use_decimal=True)
 		print(dataJson)
@@ -84,12 +87,12 @@ class Recomendacao:
 	
 		
 	def capturarAcessoUsuario(self, acesso):
-		with open(os.getcwd() + '\\base_captura.json', 'r') as json_file:
+		with open(os.getcwd() + self.fatchSystemBar() + 'base_captura.json', 'r') as json_file:
 			data = json.load(json_file)
 			userName = acesso['idUsuario']
 			print(userName)
 			user = data.get(userName)
-		with open(os.getcwd() + '\\base_captura.json', 'w') as json_file:
+		with open(os.getcwd() + self.fatchSystemBar() + 'base_captura.json', 'w') as json_file:
 			if user:
 				print(data[userName])
 				if(float(data[userName].get(acesso['idArtigo'])) < float(acesso['peso'])):
