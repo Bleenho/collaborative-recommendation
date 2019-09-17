@@ -3,13 +3,131 @@
     "info": {
       "description": "sean",
       "version": "1.0.0",
-      "title": "Seans-Python3-Flask-Rest-Boilerplate",
+      "title": "Sistema de recomendação colaborativa",
       "contact": {
-        "email": "seanwasere@gmail.com"
+        "email": "pablo.developerweb@gmail.com"
       },
       "license": {
         "name": "MIT",
         "url": "https://opensource.org/licenses/MIT"
       }
+    },
+    "paths": {
+      "/recomendacoes/{idUsuario}": {
+        "parameters": [
+          {
+            "name": "idUsuario",
+            "in": "path",
+            "required": true,
+            "description": "Id do usuario que deseja receber as recomendações",
+            "type": "string"
+          }
+        ],
+        "get": {
+          "summary": "Consulta artigos para serem recomendados",
+          "tags": [
+            "Recomendação"
+            ],
+          "parameters": [
+          {
+            "in": "path",
+            "name": "idUsuario",
+            "required": true,
+            "description": "Id do usuário",
+            "schema": {
+              "$ref": "#/components/schemas/id"
+            }
+          }
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "$ref": "#/components/schemas/artigoResponse"
+              }
+            }
+          }
+        }
+      },
+      "/recomendacoes/capturas": {
+        "put": {
+          "summary": "Consulta artigos para serem recomendados",
+          "tags": [
+            "Recomendação"
+            ],
+          "requestBody": {
+            "description": "Artigos recomendados ao usuário",
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AcessoRequest"
+                }
+              }
+            }
+          },
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "$ref": "#/components/schemas/ReturnOk"
+              }
+            }
+          }
+        }
+      }
+    },
+    "components": {
+        "schemas": {
+            "id": {
+              "properties": {
+                "uuid": {
+                  "type": "string"
+                }
+              }
+            },
+            "artigoResponse": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "NomeDoArtigo": {
+                            "type": "number"
+                        }
+                    }
+                }
+            },
+            "ReturnOk": {
+                "type": "object",
+                "properties": {
+                    "sucesso": {
+                        "type": "boolean"
+                    },
+                    "mensagem": {
+                        "type": "string"
+                    }
+                }
+            },
+            "AcessoRequest": {
+                "type": "object",
+                "properties": {
+                    "idUsuario": {
+                        "type": "string"
+                    },
+                    "idArtigo": {
+                        "type": "string"
+                    },
+                    "peso": {
+                        "type": "number"
+                    }
+                }
+            }
+        }
     }
-  }
+}
